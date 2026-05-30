@@ -1,0 +1,24 @@
+﻿@model QuanLyChamSocThuCung.Models.ThuCung
+
+<h2>Thêm thú cưng mới (demo nhanh)</h2>
+
+<form asp-action="Create">
+    <div class="mb-3">
+        <label>Tên thú cưng (nhập gì cũng được)</label>
+        <input asp-for="TenThuCung" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Loài</label>
+        <input asp-for="Loai" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Giống</label>
+        <input asp-for="Giong" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Tuổi (nhập số bất kỳ)</label>
+        <input asp-for="Tuoi" class="form-control" type="number" />
+    </div>
+    <button type="submit" class="btn btn-success">Thêm (lưu ngay)</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</form>

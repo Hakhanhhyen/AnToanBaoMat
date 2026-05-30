@@ -1,0 +1,39 @@
+﻿@model IEnumerable<QuanLyChamSocThuCung.Models.KhachHang>
+
+<h2>Danh sách khách hàng</h2>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Tên khách hàng</th>
+            <th>Điện thoại</th>
+            <th>Email</th>
+            <th>Thú cưng</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.HoTen</td>
+                <td>@item.DienThoai</td>
+                <td>@item.Email</td>
+
+                <td>
+                    <a asp-action="ThuCung"
+                       asp-route-id="@item.KhachHangId"
+                       class="btn btn-primary btn-sm">
+                        Xem thú cưng
+                    </a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

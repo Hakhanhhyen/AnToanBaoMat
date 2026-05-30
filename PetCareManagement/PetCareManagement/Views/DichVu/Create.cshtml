@@ -1,0 +1,32 @@
+﻿@model QuanLyChamSocThuCung.Models.DichVu
+
+<h2>Thêm dịch vụ</h2>
+
+<form asp-action="Create">
+
+    <div class="form-group">
+        <label>Tên dịch vụ</label>
+        <input asp-for="TenDichVu" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Giá dịch vụ</label>
+        <input asp-for="Gia" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Mô tả</label>
+        <input asp-for="MoTa" class="form-control" />
+    </div>
+
+    <br>
+
+    <button type="submit" class="btn btn-success">
+        Lưu
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Quay lại
+    </a>
+
+</form>

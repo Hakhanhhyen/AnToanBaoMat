@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="text-center py-5 bg-light">
+    <h1 class="display-4 text-primary fw-bold">Hệ thống Quản lý Chăm sóc Thú cưng</h1>
+    <p class="lead text-muted">Chăm sóc yêu thương - Sức khỏe trọn vẹn cho thú cưng của bạn</p>
+</div>
+
+<div class="container my-5">
+    <!-- Dịch vụ nổi bật -->
+    <h2 class="text-center mb-4">Dịch vụ nổi bật</h2>
+    <div class="row">
+        @foreach (var item in ViewBag.DichVuNoiBat)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.TenDichVu</h5>
+                        <p class="card-text">@item.MoTa</p>
+                        <p class="fw-bold text-success">@item.Gia.ToString("N0") đ</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Danh sách dịch vụ -->
+    <h2 class="text-center mb-4 mt-5">Danh sách dịch vụ chăm sóc</h2>
+    <table class="table table-hover table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Tên dịch vụ</th>
+                <th>Giá</th>
+                <th>Mô tả</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.DichVu)
+            {
+                <tr>
+                    <td>@item.TenDichVu</td>
+                    <td>@item.Gia.ToString("N0") đ</td>
+                    <td>@item.MoTa</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Thông tin cơ sở -->
+    <div class="card mt-5 shadow">
+        <div class="card-body">
+            <h3 class="card-title text-primary">Thông tin cơ sở</h3>
+            <p><strong>Địa chỉ:</strong> 123 Đường ABC, Quận 1, TP. Hồ Chí Minh</p>
+            <p><strong>Hotline:</strong> 0909 123 456 - 0988 765 432</p>
+            <p><strong>Giờ làm việc:</strong> 8:00 - 20:00 (hàng ngày)</p>
+            <p><strong>Email:</strong> petcare@gmail.com</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<QuanLyChamSocThuCung.Models.ThuCung>
+
+<h2>Thú cưng của khách hàng</h2>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Tên thú cưng</th>
+            <th>Loài</th>
+            <th>Giống</th>
+            <th>Tuổi</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.TenThuCung</td>
+                <td>@item.Loai</td>
+                <td>@item.Giong</td>
+                <td>@item.Tuoi</td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">
+    Quay lại
+</a>

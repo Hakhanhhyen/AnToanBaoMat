@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2>Dashboard quản trị</h2>
+
+<div class="row mt-4">
+
+    <div class="col-md-3">
+        <div class="card bg-primary text-white shadow">
+            <div class="card-body text-center">
+                <h4 class="text-white">@ViewBag.SoThuCung</h4>
+                <p>Thú cưng</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-success text-white shadow">
+            <div class="card-body text-center">
+                <h4 class="text-white">@ViewBag.SoDichVu</h4>
+                <p>Dịch vụ</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-warning text-white shadow">
+            <div class="card-body text-center">
+                <h4 class="text-white">@ViewBag.SoLichHen</h4>
+                <p>Lịch hẹn</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-danger text-white shadow">
+            <div class="card-body text-center">
+                <h4 class="text-white">@ViewBag.SoKhachHang</h4>
+                <p>Khách hàng</p>
+            </div>
+        </div>
+    </div>
+
+</div>

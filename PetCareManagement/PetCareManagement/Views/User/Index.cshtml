@@ -1,0 +1,28 @@
+﻿@model IEnumerable<QuanLyChamSocThuCung.Models.DichVu>
+
+<h2>Dịch vụ chăm sóc thú cưng</h2>
+
+<table class="table table-hover table-striped">
+
+    <thead>
+        <tr>
+            <th>Tên dịch vụ</th>
+            <th>Giá</th>
+            <th>Mô tả</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TenDichVu</td>
+                <td>@item.Gia</td>
+                <td>@item.MoTa</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

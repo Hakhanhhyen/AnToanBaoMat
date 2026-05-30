@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>Đăng nhập PETCARE</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label>Tên đăng nhập</label>
+                            <input name="TenDangNhap" class="form-control" required autofocus />
+                        </div>
+                        <div class="mb-3">
+                            <label>Mật khẩu</label>
+                            <input name="MatKhau" type="password" class="form-control" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+                        }
+                    </form>
+                    <p class="text-center mt-3">
+                        Chưa có tài khoản? <a href="@Url.Action("Register")">Đăng ký ngay</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

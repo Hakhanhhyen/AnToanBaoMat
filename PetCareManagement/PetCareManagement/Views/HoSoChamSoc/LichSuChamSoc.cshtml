@@ -1,0 +1,33 @@
+﻿@model IEnumerable<QuanLyChamSocThuCung.Models.HoSoChamSoc>
+
+<h2>Lịch sử chăm sóc</h2>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Thú cưng</th>
+            <th>Dịch vụ</th>
+            <th>Ngày hẹn</th>
+            <th>Chẩn đoán</th>
+            <th>Điều trị</th>
+            <th>Ghi chú</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ThuCung?.TenThuCung</td>
+                <td>@item.LichHen?.DichVu?.TenDichVu</td>
+                <td>@item.LichHen?.NgayHen</td>
+                <td>@item.ChanDoan</td>
+                <td>@item.DieuTri</td>
+                <td>@item.GhiChu</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
