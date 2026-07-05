@@ -1,0 +1,52 @@
+﻿@model IEnumerable<QuanLyChamSocThuCung.Models.DichVu>
+
+<h2>Quản lý dịch vụ</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">
+        Thêm dịch vụ
+    </a>
+</p>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Tên dịch vụ</th>
+            <th>Giá</th>
+            <th>Mô tả</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.TenDichVu</td>
+                <td>@item.Gia</td>
+                <td>@item.MoTa</td>
+
+                <td>
+
+                    <a asp-action="Edit"
+                       asp-route-id="@item.DichVuId"
+                       class="btn btn-primary btn-sm">
+                        Sửa
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@item.DichVuId"
+                       class="btn btn-danger btn-sm">
+                        Xóa
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>

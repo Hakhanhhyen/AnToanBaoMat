@@ -1,0 +1,36 @@
+﻿@model QuanLyChamSocThuCung.Models.LichHen
+
+<h2>Đặt lịch chăm sóc thú cưng</h2>
+
+<form asp-action="Create">
+
+    <div class="mb-3">
+        <label>Thú cưng</label>
+        <select asp-for="ThuCungId" class="form-control">
+            @foreach (var item in ViewBag.ThuCung)
+            {
+                <option value="@item.ThuCungId">@item.TenThuCung</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Dịch vụ</label>
+        <select asp-for="DichVuId" class="form-control">
+            @foreach (var item in ViewBag.DichVu)
+            {
+                <option value="@item.DichVuId">@item.TenDichVu</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Ngày hẹn</label>
+        <input asp-for="NgayHen" type="datetime-local" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Đặt lịch
+    </button>
+
+</form>

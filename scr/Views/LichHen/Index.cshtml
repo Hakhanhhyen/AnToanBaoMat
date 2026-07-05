@@ -1,0 +1,102 @@
+﻿@model IEnumerable<QuanLyChamSocThuCung.Models.LichHen>
+
+@{
+    var role = Context.Session.GetString("Role");
+}
+
+<h2>Quản lý lịch hẹn</h2>
+
+<table class="table table-hover table-striped">
+    @if (Context.Session.GetString("Role") == "KhachHang")
+    {
+        <a asp-action="Create" class="btn btn-success mb-3">
+            Đặt lịch chăm sóc
+        </a>
+    }
+
+    <thead class="table-dark">
+        <tr>
+            <th>Thú cưng</th>
+            <th>Dịch vụ</th>
+            <th>Ngày hẹn</th>
+            <th>Trạng thái</th>
+
+            @if (role == "NhanVien" || role == "Admin")
+            {
+                <th>Thao tác</th>
+            }
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.ThuCung?.TenThuCung</td>
+                <td>@item.DichVu?.TenDichVu</td>
+                <td>@item.NgayHen.ToString("dd/MM/yyyy HH:mm")</td>
+
+                <td>
+
+                    @if (item.TrangThai == "Chờ duyệt")
+                    {
+                        <span class="badge bg-warning text-dark">Chờ duyệt</span>
+                    }
+
+                    @if (item.TrangThai == "Đã duyệt")
+                    {
+                        <span class="badge bg-info text-dark">Đã duyệt</span>
+                    }
+
+                    @if (item.TrangThai == "Hoàn thành")
+                    {
+                        <span class="badge bg-success">Hoàn thành</span>
+                    }
+
+                    @if (item.TrangThai == "Từ chối")
+                    {
+                        <span class="badge bg-danger">Từ chối</span>
+                    }
+
+                </td>
+
+                @if (role == "NhanVien" || role == "Admin")
+                {
+                    <td>
+
+                        @if (item.TrangThai == "Chờ duyệt")
+                        {
+                            <a asp-action="Duyet"
+                               asp-route-id="@item.LichHenId"
+                               class="btn btn-success btn-sm">
+                                Duyệt
+                            </a>
+
+                            <a asp-action="TuChoi"
+                               asp-route-id="@item.LichHenId"
+                               class="btn btn-danger btn-sm">
+                                Từ chối
+                            </a>
+                        }
+
+                        @if (item.TrangThai == "Đã duyệt")
+                        {
+                            <a asp-controller="HoSoChamSoc"
+                               asp-action="CapNhat"
+                               asp-route-lichHenId="@item.LichHenId"
+                               class="btn btn-primary btn-sm">
+                                Khám
+                            </a>
+                        }
+
+                    </td>
+                }
+
+            </tr>
+        }
+
+    </tbody>
+</table>
